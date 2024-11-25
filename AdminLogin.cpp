@@ -2,6 +2,7 @@
 #include "ui_AdminLogin.h"
 #include "admin.h"
 
+
 AdminLogin::AdminLogin(QWidget *parent) :
     QDialog(parent), // Change QWidget to QDialog
     ui(new Ui::AdminLogin) {
@@ -15,7 +16,7 @@ void AdminLogin::on_loginButton_clicked() {
     // Check admin credentials (logic can be expanded)
     if (username == "admin" && password == "1234") {
         ui->statusLabel->setText("Login Successful!");
-        dashboard = new admindashboard(); // Pass current student
+        dashboard = new admindashboard(uni, this); // Pass current student
         dashboard->show();
         this->hide();
 

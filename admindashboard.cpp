@@ -1,11 +1,9 @@
 #include "admindashboard.h"
 #include "ui_admindashboard.h"
 #include "coursemanagement.h"
-admindashboard::admindashboard(QWidget *parent)
-    : QDialog(parent)
-    , ui(new Ui::admindashboard),
- courseManagement(nullptr)
-{
+#include <university.h>
+admindashboard::admindashboard(university *uni, QWidget *parent)
+    : QDialog(parent), ui(new Ui::admindashboard), courseManagement(nullptr), uni(uni) {
     ui->setupUi(this);
 }
 
@@ -22,7 +20,7 @@ admindashboard::~admindashboard()
 void admindashboard::on_crsmgmtbutton_clicked()
 {
     if (!courseManagement) {
-        courseManagement = new coursemanagement(this); // Create it with this as parent
+        courseManagement = new coursemanagement(uni, this); // Create it with this as parent
     }
 
     courseManagement->show();      // Show the CourseManagement dialog
@@ -30,3 +28,4 @@ void admindashboard::on_crsmgmtbutton_clicked()
     courseManagement->activateWindow(); // Give it focus
 }
 
+//test

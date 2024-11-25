@@ -2,6 +2,7 @@
 #define ADMINDASHBOARD_H
 
 #include <QDialog>
+#include <university.h>
 class coursemanagement;
 namespace Ui {
 class admindashboard;
@@ -12,7 +13,7 @@ class admindashboard : public QDialog
     Q_OBJECT
 
 public:
-    explicit admindashboard(QWidget *parent = nullptr);
+    explicit admindashboard(university *uni, QWidget *parent = nullptr);
     ~admindashboard();
     
 private slots:
@@ -23,6 +24,7 @@ private slots:
 private:
     Ui::admindashboard *ui;
     coursemanagement *courseManagement;
+    university *uni;
 };
 
 #endif // ADMINDASHBOARD_H

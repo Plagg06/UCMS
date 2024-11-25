@@ -15,6 +15,9 @@ int main(int argc, char *argv[])
     universityInstance.load_courses("courses.csv");
     universityInstance.load_events("events.csv");
 
+    admindashboard dashboard(&universityInstance);
+    dashboard.show();
+
     for (const auto& [username, student] : universityInstance.getStudents()) {
         std::cout << "Loaded student: " << username << "\n";
     }
